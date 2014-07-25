@@ -1,0 +1,52 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700' rel='stylesheet' type='text/css'>
+
+<polymer-element name="meetup-comment">
+	<template>
+		<style>
+			:host {
+				display: block;
+				position: relative;
+				background-color: white;
+				padding: 20px;
+				font-size: 1.2rem;
+				font-weight: 300;
+				border: 1px solid #ccc;
+				font-family: 'Open Sans Condensed', sans-serif;
+			}
+
+			.meetup-comment__header{
+				margin-bottom: 10px;
+				border: 1px solid #ccc;
+				background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAHklEQVQIW2NkQAX/GZH4/4FsRpgAmAOSBBFwDkgAAIKuBATRTAAZAAAAAElFTkSuQmCC) repeat;
+			}
+
+			polyfill-next-selector { content: '.meetup-comment__header h2'; }
+			.meetup-comment__header ::content h2 {
+				margin: 0;
+				font-size: 1.8rem;
+				font-weight: 300;
+				font-style: italic;
+				margin-left: 20px;
+				background-color: yellow;
+			}
+			polyfill-next-selector { content: '.meetup-comment__header img'; }
+			.meetup-comment__header ::content img {
+				width: 70px;
+				border-radius: 50%;
+				margin: 10px;
+				padding: 5px;
+				background-color: #eee;
+				border: 1px solid #ccc;
+			}
+		</style>
+		<div class="meetup-comment__header" layout horizontal center>
+			<content select="img"></content>
+			<content select="h2"></content>
+		</div>
+    	<content></content>
+	</template>
+	<script>
+		Polymer({});
+	</script>
+</polymer-element>

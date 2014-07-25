@@ -1,0 +1,14 @@
+{
+  "name": "MeetupPolymer",
+  "version": "0.0.1",
+  "authors": [
+    "Tyrone Michael Avnit <tyronemichael@gmail.com>",
+    "tyronemichael@gmail.com"
+  ],
+  "description": "Pulling in comments from meetup.com as an example for the presentation on Web Components.",
+  "license": "MIT",
+  "dependencies": {
+    "polymer": "~0.3.3",
+    "polymer-jsonp": "Polymer/polymer-jsonp#~0.3.0"
+  }
+}

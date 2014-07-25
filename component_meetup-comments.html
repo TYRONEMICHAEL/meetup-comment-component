@@ -1,0 +1,44 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/polymer-jsonp/polymer-jsonp.html">
+<link rel="import" href="component_meetup-comment.html">
+
+<polymer-element name="meetup-comments" attributes="key groupId">
+	
+	<template>
+		<style>
+			:host {
+				display: block;
+      			width: 100%;
+			}
+			.l-box {
+				padding: 0.5em;
+			}
+		</style>
+
+		<polymer-jsonp id="ajax" 
+			auto
+			response="{{resp}}"
+			url="http://api.meetup.com/comments/?key={{key}}&group_id={{groupId}}&yes=true&callback=">
+		</polymer-jsonp>
+
+		<template repeat="{{comment in resp.results}}">
+			<div class="l-box">
+				<meetup-comment>
+					<img src="{{comment.photo_url}}" width="70" height="70">
+					<h2>{{comment.name}}</h2>
+					<p>{{comment.comment}}</p>
+				</meetup-comment>
+			</div>
+		</template>
+	</template>
+	<script>
+		Polymer('meetup-comments', {
+			ready: function() {
+				var self = this;
+				setInterval(function(){
+					self.$.ajax.go();
+				}, 5000);
+			}
+		});
+	</script>
+</polymer-element>
